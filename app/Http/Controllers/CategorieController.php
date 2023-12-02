@@ -67,7 +67,7 @@ class CategorieController extends Controller
      */
     public function update(Request $request, string $id)
     {
-          $request->validate([
+        $request->validate([
             'designation'=>'required|unique:categories,designation',
             'description'=>'required',
         ]);
@@ -85,5 +85,11 @@ class CategorieController extends Controller
         Categorie::destroy($id);
         return  redirect()->route('categories.index');
 
+    }
+    public function search(Request $request){
+       
+        $param=$request->query('designation');
+        $categories=Categorie::where('designation','like','%'.$param.'%')->get();
+        return view('categories.index',compact('categories'));
     }
 }

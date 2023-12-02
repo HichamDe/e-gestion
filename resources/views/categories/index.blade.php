@@ -1,30 +1,60 @@
- @extends('layouts.admin')
- @section('title','Gestion des categories')
- @section('content')
-     
-    <h1>Liste des categories</h1>
-    <a href="{{route('categories.create')}}">Ajouter une nouvelle categorie</a>
-    <table id="tbl">
-      <tr>
-          <th>Id</th>
-        <th>Designation</th>
-        <th>Description</th>
-        <th colspan="3">Actions</th>
-      </tr>
-      @foreach ($categories as $cat)
-          <tr>
-            <td>{{$cat->id}}</td>
-            <td>{{$cat->designation}}</td>
-            <td>{{$cat->description}}</td>
-            <td><a href="{{route('categories.show',["category"=>$cat->id])}}">Details</a></td>
-            <td><a href="{{route('categories.edit',["category"=>$cat->id])}}">Modifier</a></td>
-            <td>
-                <form action="{{route('categories.destroy',["category"=>$cat->id])}}" method="POST">
-                    @method('DELETE')
-                    @csrf
-                    <input type="submit" value="Supprimer" onclick="return confirm('voulez-vous supprimer cette categorie?')">
-                </form></td>
-          </tr>
-      @endforeach
+@extends('layouts.admin')
+@section('title', 'Gestion des categories')
+@section('content')
+
+    {{-- Search and Ajouter --}}
+    <h1 class="mt-5 mb-3">Liste des categories</h1>
+    <form action="{{ route('categories.search') }}" method="get">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" name="designation">
+            <button class="input-group-text" type="submit">
+                <img src="{{ asset('/search.png') }}">
+            </button>
+            <div id="ajouter"><a class="ms-2 btn btn-primary" href="{{ route('categories.create') }}">Ajouter
+                    categorie</a></div>
+        </div>
+    </form>
+
+    {{-- reset --}}
+    <a href="{{ route('categories.index') }}">list des categories</a>
+
+    {{-- Viewer --}}
+    <table class="table table-striped">
+        <thead>
+            <th>Id</th>
+            <th>Designation</th>
+            <th>Description</th>
+            <th colspan="3">Actions</th>
+        </thead>
+        <tbody>
+            @foreach ($categories as $cat)
+                <tr>
+                    <td>{{ $cat->id }}</td>
+                    <td>{{ $cat->designation }}</td>
+                    <td>{{ $cat->description }}</td>
+                    <td>
+                        <a href="{{ route('categories.show', ['category' => $cat->id]) }}">
+                            <img src="{{ asset('/details.png') }}">
+                        </a>
+                    </td>
+                    <td>
+                        <a class="btn btn-success" href="{{ route('categories.edit', ['category' => $cat->id]) }}">
+                            <img src="{{ asset('/change.png') }}">
+                        </a>
+                    </td>
+                    <td>
+                        <form action="{{ route('categories.destroy', ['category' => $cat->id]) }}" method="POST">
+                            @method('DELETE')
+                            @csrf
+                            <button class="btn btn-danger" type="submit"
+                                onclick="return confirm('voulez-vous supprimer cette categorie?')">
+                                <img src="{{ asset('/delete.png') }}">
+                            </button>
+
+                        </form>
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
     </table>
- @endsection
+@endsection

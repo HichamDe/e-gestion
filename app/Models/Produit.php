@@ -13,9 +13,22 @@ class Produit extends Model
         'designation',
         'prix_u',
         'quantite_stock',
-        'categorie_id'
+        'categorie_id',
+        'photo',
     ];
     public function categorie(){
-       return  $this->belongsTo(Categorie::class);
+        return  $this->belongsTo(Categorie::class);
     }
+    // public function scopeFilterByPrice($query, $minPrice, $maxPrice)
+    // {
+    //     if ($minPrice) {
+    //         $query->where('prix_u', '>=', $minPrice);
+    //     }
+
+    //     if ($maxPrice) {
+    //         $query->where('prix_u', '<=', $maxPrice);
+    //     }
+
+    //     return $query;
+    // }
 }
