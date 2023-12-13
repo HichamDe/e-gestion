@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategorieController;
+use App\Http\Controllers\CommandeController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProduitController;
@@ -26,7 +27,10 @@ Route::post('/remove-panier-item' ,[HomeController::class,"removePanier"])->name
 
 Route::get("/categories/search", [CategorieController::class,"search"])->name("categories.search");
 Route::get("/produits/search", [ProduitController::class,"search"])->name("produits.search");
+
 Route::resource("categories",CategorieController::class);
 Route::resource("produits",ProduitController::class);
+Route::resource("commandes",CommandeController::class);
+
 // Route::get('/produits', [ProduitController::class, 'filter'])->name('produits.filter');
 // Route::get('/produits/filter', [ProduitController::class, 'index'])->name('produits.index');

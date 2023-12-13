@@ -36,7 +36,7 @@
             <tr>
                 <td colspan="4" class="h3">Total: {{ $total }} </td>
                 <td>
-                    <form action="">
+                    <form action='{{route("commandes.index")}}'>
                         @csrf
                         <button class="btn btn-primary" type="submit">Command</button>
                     </form>
