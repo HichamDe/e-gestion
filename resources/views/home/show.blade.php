@@ -7,7 +7,6 @@
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">#</th>
                 <th scope="col">Icon</th>
                 <th scope="col">designation</th>
                 <th scope="col">prix</th>
@@ -19,9 +18,8 @@
             @php($total = 0)
             @foreach ($produits as $prod)
                 <tr>
-                    <th scope="row">1</th>
                     <td>
-                        {{-- <img src='{{ asset("storage/$prod ") }}' alt=""> --}}
+                        <img height="50" src={{ asset("storage/" . $prod["photo"]) }} alt="">
                     </td>
                     <td> {{ $prod['designation'] }} </td>
                     <td> {{ $prod['prix_u'] }} </td>
@@ -36,11 +34,11 @@
                 </tr>
             @endforeach
             <tr>
-                <td colspan="4" class="table-active">Total: {{ $total }} </td>
+                <td colspan="4" class="h3">Total: {{ $total }} </td>
                 <td>
                     <form action="">
                         @csrf
-                        <button class="btn" type="submit">Command</button>
+                        <button class="btn btn-primary" type="submit">Command</button>
                     </form>
                 </td>
             </tr>

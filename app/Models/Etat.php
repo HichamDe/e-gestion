@@ -12,4 +12,7 @@ class Etat extends Model
         "intitule",
         "description"
     ];
+    public function commande(){
+        return $this->belongsTo(Commande::class);
+    }
 }
