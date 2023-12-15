@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('commande', function (Blueprint $table) {
             $table->id();
+            $table->integer("client_id");
             $table->timestamps();
         });
     }

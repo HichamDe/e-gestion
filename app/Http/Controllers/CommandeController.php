@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Client;
+use App\Models\Commande;
+use App\Models\LigneCommande;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class CommandeController extends Controller
 {
@@ -30,6 +34,29 @@ class CommandeController extends Controller
     public function store(Request $request)
     {
         //
+        $client = [
+            "nom"=>$request->nom,
+            "prenom"=>$request->prenom,
+            "ville"=>$request->ville,
+            "adresse"=>$request->adresse,
+            "tele"=>$request->tele,
+        ];
+        $produits = session()->get("user.produits");
+
+        $client = Client::create($client);
+        $command = Commande::create(["client_id"=>$client->id]);
+        foreach($produits as $prod){
+            LigneCommande::create([
+                "commande_id"=>$command->id,
+                "produit_id"=>$prod["id"],
+                "qte"=>$prod["qnt"],
+                "prix"=>$prod["prix_u"]
+
+            ]);
+        }
+
+        return redirect()->route("commandes.index");
+
 
     }
 

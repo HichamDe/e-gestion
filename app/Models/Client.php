@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Client extends Model
 {
     use HasFactory;
+   protected $table = "client";
     protected $fillable = [
         "nom",
         "prenom",
@@ -15,4 +16,7 @@ class Client extends Model
         "adresse",
         "tele"
     ];
+    protected function commande(){
+        return $this->hasMany(Commande::class);
+    }
 }

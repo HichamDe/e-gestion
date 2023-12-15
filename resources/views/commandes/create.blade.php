@@ -6,37 +6,37 @@
         @csrf
         <div class="input-group-text">
             <label for="designation">nom:</label>
-            <input name="designation" class="form-control mt-0 ms-2" type="text"
+            <input name="nom" class="form-control mt-0 ms-2" type="text"
                 aria-label="Checkbox for following text input">
         </div>
 
         <div class="input-group-text mt-2">
-            <label for="description">prenom:</label>
-            <input name="prix_u" class="form-control mt-0 ms-2" type="text" value=""
+            <label for="prenom">prenom:</label>
+            <input name="prenom" class="form-control mt-0 ms-2" type="text" value=""
                 aria-label="Checkbox for following text input">
         </div>
 
         <div class="input-group-text mt-2">
             <label for="description">ville:</label>
-            <input name="quantite_stock" class="form-control mt-0 ms-2" type="text" value=""
+            <input name="ville" class="form-control mt-0 ms-2" type="text" value=""
                 aria-label="Checkbox for following text input">
         </div>
 
 
         <div class="input-group-text mt-2">
             <label for="description">adress:</label>
-            <input name="quantite_stock" class="form-control mt-0 ms-2" type="text" value=""
+            <input name="adresse" class="form-control mt-0 ms-2" type="text" value=""
                 aria-label="Checkbox for following text input">
         </div>
 
         <div class="input-group-text mt-2">
             <label for="description">tele:</label>
-            <input name="quantite_stock" class="form-control mt-0 ms-2" type="text" value=""
+            <input name="tele" class="form-control mt-0 ms-2" type="text" value=""
                 aria-label="Checkbox for following text input">
         </div>
 
         <div class="mt-3">
-            <input type="submit" value="Ajouter">
+            <input type="submit" class="btn btn-primary" value="Command">
         </div>
 
     </form>
@@ -47,9 +47,6 @@
                     <li>{{ $er }}</li>
                 @endforeach
             </ul>
-
-
-
         @endif
     </div>
 @endsection

@@ -9,12 +9,17 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Commande extends Model
 {
     use HasFactory;
-    protected $fillable=[
-        "id_commande",
-        "datetime"
+   protected $table = "commande";
 
+    protected $fillable=[
+        "client_id"
     ];
     public function client(){
-        return $this->belongsTo(Client::class);
+        return $this->belongsTo(Client::class,"client_id");
     }
+    public function produit(){
+        return $this->belongsTo(Produit::class);
+    }
+
+    // protected function 
 }

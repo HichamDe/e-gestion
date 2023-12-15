@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Produit extends Model
 {
     use HasFactory;
+
     protected $fillable =[
         'designation',
         'prix_u',

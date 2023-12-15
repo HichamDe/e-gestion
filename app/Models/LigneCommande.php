@@ -8,8 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class LigneCommande extends Model
 {
     use HasFactory;
+   protected $table = "ligne_commande";
+
     protected $fillable = [
-        "command_id",
+        "commande_id",
         "produit_id",
         "qte",
         "prix",
