@@ -39,7 +39,7 @@ class CategorieController extends Controller
             'designation'=>'required|unique:categories,designation',
             'description'=>'required',
         ]);
-       Categorie::create($request->all()); 
+        Categorie::create($request->all()); 
         return  redirect()->route('categories.index');
     }
 
