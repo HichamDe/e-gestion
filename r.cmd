@@ -1,1 +1,2 @@
-php artisan ser
+php artisan test
+@REM php artisan ser
