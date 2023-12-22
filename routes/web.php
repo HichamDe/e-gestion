@@ -18,19 +18,22 @@ use App\Http\Controllers\ProduitController;
 |
 */
 
-Route::get('/', [HomeController::class,"index"])->name("index");
+// Route::get('/', [HomeController::class,"index"])->name("index");
+Route::get('/', function(){
+    return view("client.index");
+});
 
-Route::post('/add-panier' ,[HomeController::class,"addPanier"])->name("add-panier");
-Route::get('/show-panier' ,[HomeController::class,"showPanier"])->name("show-panier");
-Route::get('/clear-panier' ,[HomeController::class,"clearPanier"])->name("clear-panier-item");
-Route::post('/remove-panier-item' ,[HomeController::class,"removePanier"])->name("remove-panier-item");
+// Route::post('/add-panier' ,[HomeController::class,"addPanier"])->name("add-panier");
+// Route::get('/show-panier' ,[HomeController::class,"showPanier"])->name("show-panier");
+// Route::get('/clear-panier' ,[HomeController::class,"clearPanier"])->name("clear-panier-item");
+// Route::post('/remove-panier-item' ,[HomeController::class,"removePanier"])->name("remove-panier-item");
 
-Route::get("/categories/search", [CategorieController::class,"search"])->name("categories.search");
-Route::get("/produits/search", [ProduitController::class,"search"])->name("produits.search");
+// Route::get("/categories/search", [CategorieController::class,"search"])->name("categories.search");
+// Route::get("/produits/search", [ProduitController::class,"search"])->name("produits.search");
 
-Route::resource("categories",CategorieController::class);
-Route::resource("produits",ProduitController::class);
-Route::resource("commandes",CommandeController::class);
+// Route::resource("categories",CategorieController::class);
+// Route::resource("produits",ProduitController::class);
+// Route::resource("commandes",CommandeController::class);
 
 // Route::get('/produits', [ProduitController::class, 'filter'])->name('produits.filter');
 // Route::get('/produits/filter', [ProduitController::class, 'index'])->name('produits.index');
