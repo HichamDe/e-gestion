@@ -16,27 +16,36 @@
         </thead>
         <tbody>
             @php($total = 0)
-            @foreach ($produits as $prod)
+            @if ($produits != null)
+
+                @foreach ($produits as $prod)
+                    <tr>
+                        <td>
+                            <img height="50" src={{ asset('storage/' . $prod['photo']) }} alt="">
+                        </td>
+                        <td> {{ $prod['designation'] }} </td>
+                        <td> {{ $prod['prix_u'] }} </td>
+                        @php($total += $prod['prix_u'] * $prod['qnt'])
+                        <td> {{ $prod['qnt'] }} </td>
+                        <td>
+                            <form method="POST" action="{{ route('remove-panier-item') }}/?id={{ $prod['id'] }}">
+                                @csrf
+                                <button class="btn btn-danger" type="submit"><img
+                                        src="{{ asset('/delete.png') }}"></button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+            @else
                 <tr>
-                    <td>
-                        <img height="50" src={{ asset("storage/" . $prod["photo"]) }} alt="">
-                    </td>
-                    <td> {{ $prod['designation'] }} </td>
-                    <td> {{ $prod['prix_u'] }} </td>
-                    @php($total += $prod['prix_u'] * $prod['qnt'])
-                    <td> {{ $prod['qnt'] }} </td>
-                    <td>
-                        <form method="POST" action="{{ route('remove-panier-item') }}/?id={{ $prod['id'] }}">
-                            @csrf
-                            <button class="btn btn-danger" type="submit"><img src="{{ asset('/delete.png') }}"></button>
-                        </form>
-                    </td>
+                    <td>panier vide</td>
                 </tr>
-            @endforeach
+            @endif
+
             <tr>
                 <td colspan="4" class="h3">Total: {{ $total }} </td>
                 <td>
-                    <form action='{{route("commandes.create")}}'>
+                    <form action='{{ route('commandes.create') }}'>
                         @csrf
                         <button class="btn btn-primary" type="submit">Command</button>
                     </form>

@@ -1,2 +1,2 @@
-php artisan test
-@REM php artisan ser
+@REM php artisan test
+php artisan ser

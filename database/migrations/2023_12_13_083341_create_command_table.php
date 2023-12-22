@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('commande', function (Blueprint $table) {
+        Schema::create('commandes', function (Blueprint $table) {
             $table->id();
             $table->integer("client_id");
             $table->timestamps();
@@ -23,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('command');
+        Schema::dropIfExists('commandes');
     }
 };

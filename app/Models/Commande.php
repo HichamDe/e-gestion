@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Commande extends Model
 {
     use HasFactory;
-   protected $table = "commande";
+   protected $table = "commandes";
 
     protected $fillable=[
         "client_id"

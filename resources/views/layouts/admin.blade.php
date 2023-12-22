@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <nav class="container-fluid navbar navbar-expand-lg bg-body-tertiary container">
+    <nav class="container-fluid navbar navbar-expand-lg bg-body-tertiary">
         <div class="container">
             <a class="navbar-brand" href="/">GestionE</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -53,7 +53,7 @@
                         <use xlink:href="#bootstrap"></use>
                     </svg>
                 </a>
-                <span class="mb-3 mb-md-0 text-muted">&copy;2024 OFFPT </span>
+                <span class="mb-3 mb-md-0 text-muted">&copy;2023 OFFPT </span>
             </div>
 
             <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">

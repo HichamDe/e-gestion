@@ -21,14 +21,14 @@
                     <p class="card-text">{{ $prod->prix_u }}</p>
                     {{-- hidden inputs --}}
 
-                    <input value="{{$prod->id}}" type="hidden" name="id">
-                    <input value="{{$prod->prix_u}}" type="hidden" name="prix_u">
-                    <input value="{{$prod->designation}}" type="hidden" name="designation">
-                    <input value="{{$prod->photo}}" type="hidden" name="photo">
+                    <input value="{{ $prod->id }}" type="hidden" name="id">
+                    <input value="{{ $prod->prix_u }}" type="hidden" name="prix_u">
+                    <input value="{{ $prod->designation }}" type="hidden" name="designation">
+                    <input value="{{ $prod->photo }}" type="hidden" name="photo">
 
-                    <input placeholder="quantity" class="form-control mb-3" type="number" name="qnt">
+                    <input placeholder="quantity" class="form-control mb-3" type="number" value="1" name="qnt">
 
-                    <button type="submit" href="#" class="btn btn-primary">Detailt</button>
+                    <a href="#" class="btn btn-primary">Detailt</a>
                     <button type="submit" class="btn btn-primary">Ajouter au panier</button>
                 </div>
             </form>
