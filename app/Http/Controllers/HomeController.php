@@ -11,8 +11,11 @@ class HomeController extends Controller
 
     public function index(){
         $produits = Produit::paginate(12);
-        return view("home.index", compact("produits"));
+        return view("welcome", compact("produits"));
     }
+
+
+
     public function addPanier(Request $request){
 
         $produits = [

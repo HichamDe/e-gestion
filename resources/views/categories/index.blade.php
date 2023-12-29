@@ -1,6 +1,11 @@
-@extends('layouts.admin')
-@section('title', 'Gestion des categories')
-@section('content')
+<x-app-layout>
+
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            {{ __('Categories') }}
+        </h2>
+        
+    </x-slot>
 
     {{-- Search and Ajouter --}}
     <h1 class="mt-5 mb-3">Liste des categories</h1>
@@ -57,4 +62,5 @@
             @endforeach
         </tbody>
     </table>
-@endsection
+    
+<x-app-layout>

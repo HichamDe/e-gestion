@@ -38,7 +38,7 @@ class ProduitController extends Controller
 
         
 
-        return view("produits.index",compact('produits'));
+        return view("produit",compact('produits'));
         //
     }
 
